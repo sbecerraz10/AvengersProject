@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="130.0" prefWidth="481.0" style="-fx-background-color: #008fe5;" />
       <ImageView fitHeight="299.0" fitWidth="482.0" layoutX="-1.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Marvel.jpg" />
+            <Image url="@../../images/Marvel.jpg" />
          </image>
       </ImageView>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="195.0" mnemonicParsing="false" onAction="#play" prefHeight="26.0" prefWidth="102.0" style="-fx-background-radius: 90; -fx-background-color: #021e71;" text="Play" textAlignment="CENTER" textFill="WHITE">
@@ -32,7 +31,7 @@
       </Button>
       <ImageView fitHeight="121.0" fitWidth="284.0" layoutX="94.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../avengers.png" />
+            <Image url="@../../images/avengers.png" />
          </image>
       </ImageView>
    </children>
