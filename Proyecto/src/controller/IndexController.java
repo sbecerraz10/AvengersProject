@@ -31,6 +31,7 @@ public class IndexController implements Initializable{
     @FXML
     private ImageView personaje3;
 
+    
     @FXML
     private ImageView personaje4;
     

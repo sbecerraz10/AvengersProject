@@ -54,6 +54,7 @@ public class MenuController implements Initializable{
 				Alert a = new Alert(AlertType.ERROR);
 				a.show();
 			}
+			
 		}
 	}
 	
