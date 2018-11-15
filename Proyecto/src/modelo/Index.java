@@ -75,12 +75,15 @@ public class Index {
 			}
 		}
 	}
+	
+	public User serachUser(String criterio) { 
+		return users.get(0);
+	}
 
 
 	public ArrayList<User> getUsers() {
 		return users;
 	}
-
 
 	public void setUsers(ArrayList<User> users) {
 		this.users = users;
