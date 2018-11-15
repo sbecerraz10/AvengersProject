@@ -25,7 +25,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Avengers");
-		//	primaryStage.getIcons().add(new Image("images/logo.png"));
+			primaryStage.getIcons().add(new Image("/images/logo.png"));
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

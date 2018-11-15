@@ -33,7 +33,7 @@
             <Image url="@../../images/arrow-left.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="1.0" layoutY="1.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/home.png" />
          </image>

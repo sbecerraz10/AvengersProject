@@ -62,8 +62,6 @@ public class MenuController implements Initializable{
 		}
 	}
 	
-	
-	
 	@FXML
 	public void ranking(ActionEvent event) {
 		try {
