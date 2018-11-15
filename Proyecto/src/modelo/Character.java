@@ -1,8 +1,10 @@
 package modelo;
 
-public class Character {
+public class Character implements Comparable<Character> {
 
 	private int life;
+	
+	private int power;
 	
 	private String nickname;
 	
@@ -10,18 +12,23 @@ public class Character {
 	
 	private Character next;
 	
+	private Character previous;
+	
 	private Gemma rootGemma;
+	
 
 	private int posx;
 	
 	private int posy;
 	
-	public Character(int life, String nickname, String image) {
+	public Character(int life,int power, String nickname, String image) {
 		super();
 		this.life = life;
+		this.power = power;
 		this.nickname = nickname;
 		this.image = image;
 		this.next = null;
+		this.previous = null;
 	}
 
 	public Gemma getRootGemma() {
@@ -78,6 +85,36 @@ public class Character {
 
 	public void setNext(Character next) {
 		this.next = next;
+	}
+
+	public Character getPrevious() {
+		return previous;
+	}
+
+	public void setPrevious(Character previous) {
+		this.previous = previous;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		this.power = power;
+	}
+
+	@Override
+	public int compareTo(Character character2) {
+		int toReturn = 0;
+		
+		if(this.power < character2.getPower() ) {
+			toReturn = -1;
+		}else if(this.power > character2.getPower()) {
+			toReturn = 1;
+		}
+		
+		return toReturn;
+	
 	}
 	
 	

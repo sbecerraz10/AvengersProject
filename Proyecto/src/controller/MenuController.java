@@ -17,8 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import modelo.Index;
 
 public class MenuController implements Initializable{
 	
@@ -46,23 +46,23 @@ public class MenuController implements Initializable{
 				loader.setLocation(getClass().getResource("/application/IndexWindow.fxml"));
 				Parent root = loader.load();
 				Scene scene = new Scene(root);
-				Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//				IndexController indx = (IndexController) loader.getController();
-//				System.out.println(""+indx.toString());
-//				indx.receiveIndex(index);
+				Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+				stage.setTitle("INDEX");
 				stage.setScene(scene);
 				stage.show();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (NicknameNotValid e) {
 				Alert a = new Alert(AlertType.ERROR);
 				a.setContentText(e.getMessage());
 				a.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 		}
 	}
+	
+	
 	
 	@FXML
 	public void ranking(ActionEvent event) {
