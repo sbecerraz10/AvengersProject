@@ -9,6 +9,8 @@ public class Character {
 	private String image;
 	
 	private Character next;
+	
+	private Gemma rootGemma;
 
 	private int posx;
 	
@@ -20,6 +22,14 @@ public class Character {
 		this.nickname = nickname;
 		this.image = image;
 		this.next = null;
+	}
+
+	public Gemma getRootGemma() {
+		return rootGemma;
+	}
+
+	public void setRootGemma(Gemma rootGemma) {
+		this.rootGemma = rootGemma;
 	}
 
 	public int getPosx() {

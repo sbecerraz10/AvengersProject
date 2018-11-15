@@ -8,6 +8,13 @@ public class Index {
 	
 	private ArrayList<User> users;
 	
+	
+	
+	public Index() {
+		users = new ArrayList<User>();	
+	}
+	
+	
 	public void registrerUser(String nickname) throws NicknameNotValid {
 		if(nickname.length()<4) {
 			throw new NicknameNotValid();

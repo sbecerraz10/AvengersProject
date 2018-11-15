@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import application.Main;
 import exception.NicknameNotValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,12 +22,13 @@ import modelo.Index;
 
 public class MenuController implements Initializable{
 	
-	private Index index;
+	
+	//In case you need indexModel, call it using Main.getIndexModel()
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		index = new Index();
 	}
 	
 	@FXML
@@ -36,18 +39,19 @@ public class MenuController implements Initializable{
 		Optional<String> result = dialog.showAndWait();
 		if(result.isPresent()) {
 			try {
-			String nickName = result.get();
-			System.out.println(nickName);
-			index.registrerUser(nickName);
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/application/IndexWindow.fxml"));
-			Parent root = loader.load();
-			Scene scene = new Scene(root);
-			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			IndexController indx = (IndexController) loader.getController();
-			indx.receiveIndex(index);
-			stage.setScene(scene);
-			stage.show();
+				String nickName = result.get();
+				System.out.println(nickName);
+				Main.getIndexModel().registrerUser(nickName);
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("/application/IndexWindow.fxml"));
+				Parent root = loader.load();
+				Scene scene = new Scene(root);
+				Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//				IndexController indx = (IndexController) loader.getController();
+//				System.out.println(""+indx.toString());
+//				indx.receiveIndex(index);
+				stage.setScene(scene);
+				stage.show();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

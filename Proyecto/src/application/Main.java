@@ -3,11 +3,19 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import modelo.Index;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 
 public class Main extends Application {
+	
+	
+	//Static relationship between model and controllers
+	//All controllers are going to call it using Main.getIndexModel()
+	private static Index indexModel;
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -25,7 +33,16 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		indexModel = new Index();
 		launch(args);
+	}
+
+	public static Index getIndexModel() {
+		return indexModel;
+	}
+
+	public static void setIndexModel(Index indexModel) {
+		Main.indexModel = indexModel;
 	}
 	
 }

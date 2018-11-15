@@ -35,16 +35,12 @@ public class IndexController implements Initializable{
     @FXML
     private ImageView personaje4;
     
-    private Index index;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
-	
-	public void receiveIndex(Index index) {
-		this.index = index;
-	}
+
 	
 	public void actPage() {
 		
