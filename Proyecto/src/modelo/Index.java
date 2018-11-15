@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import exception.NicknameNotValid;
 
 public class Index {
-	//fffff
+	
 	private ArrayList<User> users;
 	
 	public void registrerUser(String nickname) throws NicknameNotValid {

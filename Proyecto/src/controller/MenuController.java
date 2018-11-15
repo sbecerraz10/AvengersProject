@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import exception.NicknameNotValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.MediaException.Type;
 import javafx.stage.Stage;
 import modelo.Index;
 
@@ -39,12 +37,15 @@ public class MenuController implements Initializable{
 		if(result.isPresent()) {
 			try {
 			String nickName = result.get();
+			System.out.println(nickName);
 			index.registrerUser(nickName);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/application/IndexWindow.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			IndexController indx = (IndexController) loader.getController();
+			indx.receiveIndex(index);
 			stage.setScene(scene);
 			stage.show();
 			} catch (IOException e) {
@@ -52,6 +53,7 @@ public class MenuController implements Initializable{
 				e.printStackTrace();
 			} catch (NicknameNotValid e) {
 				Alert a = new Alert(AlertType.ERROR);
+				a.setContentText(e.getMessage());
 				a.show();
 			}
 			
@@ -60,7 +62,18 @@ public class MenuController implements Initializable{
 	
 	@FXML
 	public void ranking(ActionEvent event) {
-		
+		try {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/application/PlayersWindow.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML

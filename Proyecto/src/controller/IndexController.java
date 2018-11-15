@@ -47,7 +47,7 @@ public class IndexController implements Initializable{
 	}
 	
 	public void actPage() {
-
+		
 	}
 	
 
