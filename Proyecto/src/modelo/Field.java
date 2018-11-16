@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Field {
 	
-	
 	private Field next;
 	
 	private Field previous;
@@ -13,15 +12,15 @@ public class Field {
 	
 	private String image;
 	
-	private ArrayList<Trap> traps;
+	private ArrayList<Bomb> bombs;
+	
+	private ArrayList<Electricity> electricity;
 
 	public Field() {
-		traps = new ArrayList<Trap>();
+		bombs = new ArrayList<Bomb>();
+		electricity = new ArrayList<Electricity>();
 	}
 	
-	
-	
-
 	public Field getNext() {
 		return next;
 	}
@@ -34,15 +33,9 @@ public class Field {
 		return previous;
 	}
 
-
-
-
 	public void setPrevious(Field previous) {
 		this.previous = previous;
 	}
-
-
-
 
 	public Gemma getRootGemma() {
 		return rootGemma;
@@ -52,31 +45,33 @@ public class Field {
 		this.rootGemma = rootGemma;
 	}
 
-	public ArrayList<Trap> getTraps() {
-		return traps;
+	public ArrayList<Bomb> getBombs() {
+		return bombs;
+	}
+	
+	public ArrayList<Electricity> getElectricity() {
+		return electricity;
 	}
 
-	public void setTraps(ArrayList<Trap> traps) {
-		this.traps = traps;
+	public void setBombs(ArrayList<Bomb> bombs) {
+		this.bombs = bombs;
 	}
 
-
-
+	public void setTraps(ArrayList<Electricity> electricity) {
+		this.electricity = electricity;
+	}
 
 	public String getImage() {
 		return image;
 	}
 
-
-
-
 	public void setImage(String image) {
 		this.image = image;
 	}
 	
-	
-	
-	
+	public void generateTraps() {
+		
+	}
 	
 
 }
