@@ -80,7 +80,6 @@ public class Index {
 		return users.get(0);
 	}
 
-
 	public ArrayList<User> getUsers() {
 		return users;
 	}
