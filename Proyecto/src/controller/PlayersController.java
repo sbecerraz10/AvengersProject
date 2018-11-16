@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class PlayersController implements Initializable{
@@ -18,7 +19,7 @@ public class PlayersController implements Initializable{
 		// TODO Auto-generated method stub
 	}
 	
-	public void backToMenu(ActionEvent event) {
+	public void backToMenu(MouseEvent event) {
 		try {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/application/MenuWindow.fxml"));

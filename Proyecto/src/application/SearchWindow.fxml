@@ -6,28 +6,24 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchController">
    <children>
-      <ImageView fitHeight="223.0" fitWidth="369.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="296.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../git/AvengersProject/Proyecto/images/Fondo2.jpg" />
+            <Image url="@../../images/Fondo2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="162.0" layoutX="186.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="96.0" fitWidth="238.0" layoutX="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../git/AvengersProject/Proyecto/images/avengers.png" />
+            <Image url="@../../images/avengers.png" />
          </image>
       </ImageView>
-      <ListView fx:id="ListView" layoutX="14.0" layoutY="37.0" prefHeight="167.0" prefWidth="162.0" />
-      <Button fx:id="B_Select" layoutX="194.0" layoutY="88.0" mnemonicParsing="false" onAction="#b_select" prefHeight="26.0" prefWidth="148.0" style="-fx-background-radius: 90;" text="Select Player" />
-      <Button fx:id="B_Home" layoutX="-9.0" layoutY="-5.0" mnemonicParsing="false" onAction="#b_Home" prefHeight="38.0" prefWidth="46.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../git/AvengersProject/Proyecto/images/home.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <ListView fx:id="ListView" layoutX="15.0" layoutY="50.0" prefHeight="198.0" prefWidth="182.0" />
+      <Button fx:id="B_Select" layoutX="251.0" layoutY="130.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="148.0" style="-fx-background-radius: 90;" text="Select Player" />
+      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="4.0" layoutY="2.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/home.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

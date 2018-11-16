@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import exception.NicknameNotValid;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -79,7 +80,7 @@ public class MenuController implements Initializable{
 	}
 	
 	@FXML
-	public void search(ActionEvent event) {
+	public void resumeGame(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/application/SearchWindow.fxml"));
@@ -93,5 +94,26 @@ public class MenuController implements Initializable{
 				e.printStackTrace();
 			}
 	}
+	
+	
+	@FXML
+	public void searchPlayer(ActionEvent event) {
+		TextInputDialog dialog = new TextInputDialog();
+		dialog.setContentText("Ingrese el puntaje del usuario que sea buscar: ");
+		Optional<String> result = dialog.showAndWait();
+		if(result.isPresent()){
+			String criterio = result.get();
+		}
+	}
+		
+		@FXML
+		public void searchCharacter(ActionEvent event) {
+			TextInputDialog dialog = new TextInputDialog();
+			dialog.setContentText("Ingrese el nombre del personaje que desea buscar: ");
+			Optional<String> result = dialog.showAndWait();
+			if(result.isPresent()) {
+				String criterio = result.get();
+			}
+		}
 
 }
