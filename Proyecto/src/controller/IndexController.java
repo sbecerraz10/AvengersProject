@@ -14,7 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -36,7 +38,7 @@ public class IndexController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println(Main.getIndexModel().getHeadCharacter().getNickname());
 		character1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
-		
+		field1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
 	}
 	
 	@FXML
@@ -52,14 +54,15 @@ public class IndexController implements Initializable{
 		field1.setOpacity(0.30);
 		leftArrowField.setVisible(false);
 		rightArrowField.setVisible(false);
-		//Falta metodo escoger campo en el modelo
 	}
 	
 	@FXML
 	public void play(ActionEvent event) {
 		try {
 			Main.getIndexModel().chooseField(field1.getImage().impl_getUrl());
+			System.out.println(Main.getIndexModel().getFieldChoose());
 			Main.getIndexModel().chooseCharacter(character1.getImage().impl_getUrl());
+			System.out.println(Main.getIndexModel().getCharacterChoose());
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/application/FieldWindow.fxml"));
 			Parent root = loader.load();
@@ -68,13 +71,17 @@ public class IndexController implements Initializable{
 			stage.setScene(scene);
 			stage.show();
 		}catch(IOException e) {
-			
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText(e.getMessage());
+			a.show();
 		} catch (FieldNotChoosen e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText(e.getMessage());
+			a.show();
 		} catch (CharacterNotChoosen e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText(e.getMessage());
+			a.show();
 		}
 		
 	}

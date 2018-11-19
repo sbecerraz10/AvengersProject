@@ -26,8 +26,8 @@
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="character1" fitHeight="92.0" fitWidth="120.0" layoutX="228.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="266.0" layoutY="304.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-radius: 90; -fx-background-color: #021e71;" text="Play" textFill="WHITE" />
+      <ImageView fx:id="character1" fitHeight="92.0" fitWidth="120.0" layoutX="228.0" layoutY="203.0" onMouseClicked="#selectCharacter" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="266.0" layoutY="304.0" mnemonicParsing="false" onAction="#play" prefHeight="26.0" prefWidth="48.0" style="-fx-background-radius: 90; -fx-background-color: #021e71;" text="Play" textFill="WHITE" />
       <ImageView fx:id="leftArrowField" fitHeight="48.0" fitWidth="71.0" layoutX="128.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/arrow-left.png" />
@@ -53,5 +53,6 @@
             <Image url="@../../images/arrow-left.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="field1" fitHeight="92.0" fitWidth="120.0" layoutX="216.0" layoutY="72.0" onMouseClicked="#selectField" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
