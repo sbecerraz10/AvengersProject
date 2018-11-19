@@ -4,14 +4,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import modelo.Gemma;
 
 public class FieldController implements Initializable{
+	
+	private Gemma gemma;
+	
+	private Timeline thread;
 
     @FXML
     private ImageView field;
@@ -36,10 +45,14 @@ public class FieldController implements Initializable{
     
     @FXML
     private ImageView character;
+    
+    @FXML
+    private ImageView g;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		field.setImage(new Image(Main.getIndexModel().getFieldChoose().getImage()));
+		gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
 		gema1.setOpacity(0.30);
 		gema2.setOpacity(0.30);
 		gema3.setOpacity(0.30);
@@ -47,6 +60,18 @@ public class FieldController implements Initializable{
 		gema5.setOpacity(0.30);
 		gema6.setOpacity(0.30);	
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
+			
+			thread = new Timeline(new KeyFrame(Duration.ZERO, e-> {
+				gemma.moveGemma();
+				g.setLayoutY(gemma.getPosy());
+				
+				
+			}),new KeyFrame(Duration.millis(30)));
+			
+			thread.setCycleCount(Animation.INDEFINITE);
+			thread.play();
+			
+		
 	}
 	
 	public void receiveScene(Scene scene) {
@@ -57,9 +82,25 @@ public class FieldController implements Initializable{
 	public void onKeyPressed(Scene scene) {
 		scene.setOnKeyPressed(e->{
 			switch(e.getCode()) {
-				case LEFT: 
+				case LEFT: moveLeft();
+				disableRight();
+				disableUp();
+				disableDown();
 					break;
-				case RIGHT: 
+				case RIGHT: moveRight();
+				disableLeft();
+				disableUp();
+				disableDown();
+					break;	
+				case UP: moveUp();
+				disableDown();
+				disableRight();
+				disableLeft();
+					break;
+				case DOWN: moveDown();
+				disableUp();
+				disableRight();
+				disableLeft();
 					break;
 				default:
 					break;
@@ -68,7 +109,50 @@ public class FieldController implements Initializable{
 		});
 	}
 	
-	public void moveRight() {
+	private void moveDown() {
+		Main.getIndexModel().getCharacterChoose().setDown(true);
+		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
+		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
 		
 	}
+
+	private void moveUp() {
+		Main.getIndexModel().getCharacterChoose().setUp(true);
+		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
+		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
+		
+	}
+
+	public void moveRight() {
+		Main.getIndexModel().getCharacterChoose().setRight(true);
+		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
+		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
+	}
+	
+	public void moveLeft() {
+		Main.getIndexModel().getCharacterChoose().setLeft(true);
+		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
+		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
+	}
+	
+	public void disableRight() {
+		Main.getIndexModel().getCharacterChoose().setRight(false);
+	}
+	
+	public void disableLeft() {
+		Main.getIndexModel().getCharacterChoose().setLeft(false);
+	}
+	
+	public void disableUp() {
+		Main.getIndexModel().getCharacterChoose().setUp(false);
+	}
+	
+	public void disableDown() {
+		Main.getIndexModel().getCharacterChoose().setDown(false);
+	}
+	
 }

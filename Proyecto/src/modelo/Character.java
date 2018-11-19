@@ -3,11 +3,11 @@ package modelo;
 public class Character implements Comparable<Character> {
 
 	
-	public static final int LIMITX = 600;
+	public static final int LIMITX = 693;
 
-	public static final int LIMITY = 600;
+	public static final int LIMITY = 243;
 	
-	public static final int MOVEMENT_RATING = 4;
+	public static final int MOVEMENT_RATING = 10;
 	
 	private int life;
 	
@@ -30,7 +30,29 @@ public class Character implements Comparable<Character> {
 	
 	private boolean left; 
 	private boolean right; 
+	private boolean up; 
+	private boolean down; 
 	
+	public boolean isUp() {
+		return up;
+	}
+
+
+	public void setUp(boolean up) {
+		this.up = up;
+	}
+
+
+	public boolean isDown() {
+		return down;
+	}
+
+
+	public void setDown(boolean down) {
+		this.down = down;
+	}
+
+
 	public Character(int life,int power, String nickname, String image) {
 		super();
 		this.life = life;
@@ -39,6 +61,7 @@ public class Character implements Comparable<Character> {
 		this.image = image;
 		this.next = null;
 		this.previous = null;
+//		this.posy = 500;
 	}
 
 	
@@ -46,10 +69,22 @@ public class Character implements Comparable<Character> {
 		if(this.left) {
 			if(posx>0) {
 				this.posx -= MOVEMENT_RATING;				
+			}else {
+				this.posx = LIMITX;
 			}
 		}if(this.right) {
 			if(posx<LIMITX) {
 				this.posx += MOVEMENT_RATING;
+			}else {
+				this.posx = 0;
+			}
+		}if(this.up) {
+			if(posy>0) {
+				this.posy -= MOVEMENT_RATING;
+			}
+		}if(this.down) {
+			if(posy<LIMITY) {
+				this.posy += MOVEMENT_RATING;
 			}
 		}
 	}
@@ -174,10 +209,6 @@ public class Character implements Comparable<Character> {
 		}
 		return toReturn;
 	}
-	
-	
-	
-	
 	
 	
 
