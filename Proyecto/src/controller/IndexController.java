@@ -99,6 +99,8 @@ public class IndexController implements Initializable{
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FieldController fdc = (FieldController) loader.getController();
+			fdc.receiveScene(scene);
 			stage.setScene(scene);
 			stage.show();
 		}catch(IOException e) {

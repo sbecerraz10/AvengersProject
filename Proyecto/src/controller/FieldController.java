@@ -4,8 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -47,4 +49,26 @@ public class FieldController implements Initializable{
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
 	}
 	
+	public void receiveScene(Scene scene) {
+		onKeyPressed(scene);
+	}
+
+	@FXML
+	public void onKeyPressed(Scene scene) {
+		scene.setOnKeyPressed(e->{
+			switch(e.getCode()) {
+				case LEFT: 
+					break;
+				case RIGHT: 
+					break;
+				default:
+					break;
+				}
+			
+		});
+	}
+	
+	public void moveRight() {
+		
+	}
 }
