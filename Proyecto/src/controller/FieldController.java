@@ -46,5 +46,5 @@ public class FieldController implements Initializable{
 		gema6.setOpacity(0.30);	
 		//character.setImage(new Image(Main.getIndexModel()));
 	}
-
+	
 }

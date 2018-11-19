@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import exception.CharacterNotChoosen;
+import exception.FieldNotChoosen;
 import exception.NicknameNotValid;
 
 public class Index {
@@ -11,6 +13,10 @@ public class Index {
 	private Field headField;
 	
 	private Character headCharacter;
+	
+	private Character characterChoose;
+	
+	private Field fieldChoose;
 	
 	
 	public Index() {
@@ -76,10 +82,50 @@ public class Index {
 		}
 	}
 	
+	public void chooseCharacter(String id) throws CharacterNotChoosen {
+		if(headCharacter != null) {
+			if(headCharacter.getImage().equals(id)) {
+				this.setCharacterChoose(headCharacter);
+			}else {
+				this.setCharacterChoose(headCharacter.searchCharacter(id));
+			}
+		}else {
+			throw new CharacterNotChoosen();
+		}
+	}
+	
+	public void chooseField(String id) throws FieldNotChoosen {
+		if(headField != null) {
+			if(headField.getImage().equals(id)) {
+				this.setFieldChoose(headField);
+			}else {
+				this.setFieldChoose(headField.searchField(id));
+			}
+		}else {
+			throw new FieldNotChoosen();
+		}
+	}
+	
+	public Character getCharacterChoose() {
+		return characterChoose;
+	}
+
+	public void setCharacterChoose(Character characterChoose) {
+		this.characterChoose = characterChoose;
+	}
+
+	public Field getFieldChoose() {
+		return fieldChoose;
+	}
+
+	public void setFieldChoose(Field fieldChoose) {
+		this.fieldChoose = fieldChoose;
+	}
+
 	public User serachUser(String criterio) { 
 		return users.get(0);
 	}
-
+	
 	public ArrayList<User> getUsers() {
 		return users;
 	}

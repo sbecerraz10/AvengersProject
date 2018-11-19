@@ -159,6 +159,21 @@ public class Character implements Comparable<Character> {
 		return toReturn;
 	
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Character searchCharacter(String id) {
+		Character toReturn = null;
+		if(this.image.equals(id)) {
+			toReturn =  this;
+		}else {
+			toReturn = this.next.searchCharacter(id);
+		}
+		return toReturn;
+	}
 	
 	
 	

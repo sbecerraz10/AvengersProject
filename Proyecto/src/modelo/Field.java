@@ -73,5 +73,14 @@ public class Field {
 		
 	}
 	
+	public Field searchField(String id) {
+		Field toReturn = null;
+		if(this.image.equals(id)) {
+			toReturn =  this;
+		}else {
+			toReturn = this.next.searchField(id);
+		}
+		return toReturn;
+	}
 
 }
