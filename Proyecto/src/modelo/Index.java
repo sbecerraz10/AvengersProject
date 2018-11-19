@@ -51,16 +51,18 @@ public class Index {
 	
 	public void loadCharacters() {
 		Character thor = new Character(1000,100000,"thor","/images/thor.png");
-		Character spiderman = new Character(1000,10000,"spiderman","/images/thor.png");
-		Character ironman = new Character(1000,1000,"iron man","/images/thor.png");
+		Character spiderman = new Character(1000,10000,"spiderman","/images/spiderman1.png");
+		Character ironman = new Character(1000,1000,"iron man","/images/ironman.png");
 		saveCharacters(ironman,this.headCharacter,null);
 		saveCharacters(spiderman,this.headCharacter,null);
 		saveCharacters(thor,this.headCharacter,null);
 	}
 	
 	public void loadFields() {
-		Field chernovil = new Field("/images/chernobyl.png");
+		Field chernovil = new Field("/images/chernobyl.jpg");
 		saveField(chernovil,this.headField,null);
+		
+		
 		//file:/C:/Users/KAMILO/git/AvengersProject/Proyecto/bin
 	}
 	
@@ -110,20 +112,24 @@ public class Index {
 	
 	public void circularListCharacter() {
 		Character actual = headCharacter;
+		Character previous = null;
 		while(actual!= null) {
+			previous = actual;
 			actual = actual.getNext();
 		}
-		actual.setNext(headCharacter);
-		headCharacter.setPrevious(actual);
+		previous.setNext(headCharacter);
+		headCharacter.setPrevious(previous);
 	}
 	
 	public void circularListField() {
 		Field actual = headField;
+		Field previous = null;
 		while(actual!= null) {
+			previous = actual;
 			actual = actual.getNext();
 		}
-		actual.setNext(headField);
-		headField.setPrevious(actual);
+		previous.setNext(headField);
+		headField.setPrevious(previous);
 	}
 	
 	public Character showNextCharacter(Character actual) {

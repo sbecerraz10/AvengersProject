@@ -42,6 +42,7 @@ public class IndexController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		actualCharacter = Main.getIndexModel().getHeadCharacter();
+		actualField = Main.getIndexModel().getHeadField();
 		System.out.println(Main.getIndexModel().getHeadCharacter().getNickname());
 		character1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
 		field1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
@@ -49,9 +50,29 @@ public class IndexController implements Initializable{
 	
 	@FXML
 	public void showNextCharacter(MouseEvent event) {
-		Field field = actualField;
-		//while()
-		//character1.setImage(new Image(Main.getIndexModel().showNextCharacter(Main.getIndexModel().getHeadCharacter()).getImage()));
+		this.actualCharacter = this.actualCharacter.getNext();
+		System.out.println(this.actualCharacter.getImage());
+		character1.setImage(new Image(this.actualCharacter.getImage()));
+	}
+	@FXML
+	public void showPreviousCharacter(MouseEvent event) {
+		this.actualCharacter = this.actualCharacter.getPrevious();
+		System.out.println(this.actualCharacter.getImage());
+		character1.setImage(new Image(this.actualCharacter.getImage()));
+	}
+	
+	@FXML
+	public void showNextField(MouseEvent t) {
+		this.actualField = this.actualField.getNext();
+		System.out.println(this.actualField.getImage());
+		field1.setImage(new Image(this.actualField.getImage()));
+	}
+	
+	@FXML
+	public void showPreviousField(MouseEvent t) {
+		this.actualField = this.actualField.getPrevious();
+		System.out.println(this.actualField.getImage());
+		field1.setImage(new Image(this.actualField.getImage()));
 	}
 	
 	@FXML
