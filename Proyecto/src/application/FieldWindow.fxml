@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.">
    <children>
       <ImageView fx:id="field" fitHeight="483.0" fitWidth="713.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/chernobyl.jpg" />
+            <Image url="@../../images/chernobyl.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="gema1" fitHeight="39.0" fitWidth="28.0" layoutX="603.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
@@ -42,5 +42,6 @@
             <Image url="@../../images/Gema_poder.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="character" fitHeight="150.0" fitWidth="144.0" layoutX="348.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
