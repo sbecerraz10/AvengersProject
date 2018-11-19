@@ -2,6 +2,13 @@ package modelo;
 
 public class Character implements Comparable<Character> {
 
+	
+	public static final int LIMITX = 600;
+
+	public static final int LIMITY = 600;
+	
+	public static final int MOVEMENT_RATING = 4;
+	
 	private int life;
 	
 	private int power;
@@ -18,8 +25,11 @@ public class Character implements Comparable<Character> {
 	
 
 	private int posx;
-	
+	 
 	private int posy;
+	
+	private boolean left; 
+	private boolean right; 
 	
 	public Character(int life,int power, String nickname, String image) {
 		super();
@@ -30,6 +40,39 @@ public class Character implements Comparable<Character> {
 		this.next = null;
 		this.previous = null;
 	}
+
+	
+	public void moveCharacter() {
+		if(this.left) {
+			if(posx>0) {
+				this.posx -= MOVEMENT_RATING;				
+			}
+		}if(this.right) {
+			if(posx<LIMITX) {
+				this.posx += MOVEMENT_RATING;
+			}
+		}
+	}
+	
+	public boolean isLeft() {
+		return left;
+	}
+
+
+	public void setLeft(boolean left) {
+		this.left = left;
+	}
+
+
+	public boolean isRight() {
+		return right;
+	}
+
+
+	public void setRight(boolean right) {
+		this.right = right;
+	}
+
 
 	public Gemma getRootGemma() {
 		return rootGemma;
