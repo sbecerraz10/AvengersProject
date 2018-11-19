@@ -170,31 +170,43 @@ public class Index {
 		this.fieldChoose = this.fieldChoose.getPrevious();
 	}
 	
-	public void chooseCharacter(String id) throws CharacterNotChoosen {
-		if(headCharacter != null) {
-			if(headCharacter.getImage().equals(id)) {
-				this.setCharacterChoose(headCharacter);
-			}else {
-				if(this.headCharacter.getNext()!=null)
-					this.setCharacterChoose(headCharacter.searchCharacter(id));
-			}
-		}else {
+	public void electedCharacter(boolean elected) throws CharacterNotChoosen {
+		if(elected == false) {
 			throw new CharacterNotChoosen();
 		}
 	}
 	
-	public void chooseField(String id) throws FieldNotChoosen {
-		if(headField != null) {
-			if(headField.getImage().equals(id)) {
-				this.setFieldChoose(headField);
-			}else {
-				if(this.headField.getNext()!=null)
-					this.setFieldChoose(headField.searchField(id));
-			}
-		}else {
+	public void electedField(boolean elected) throws FieldNotChoosen {
+		if(elected == false) {
 			throw new FieldNotChoosen();
 		}
 	}
+	
+//	public void chooseCharacter(String id) throws CharacterNotChoosen {
+//		if(headCharacter != null) {
+//			if(headCharacter.getImage().equals(id)) {
+//				this.setCharacterChoose(headCharacter);
+//			}else {
+//				if(this.headCharacter.getNext()!=null)
+//					this.setCharacterChoose(headCharacter.searchCharacter(id));
+//			}
+//		}else {
+//			throw new CharacterNotChoosen();
+//		}
+//	}
+//	
+//	public void chooseField(String id) throws FieldNotChoosen {
+//		if(headField != null) {
+//			if(headField.getImage().equals(id)) {
+//				this.setFieldChoose(headField);
+//			}else {
+//				if(this.headField.getNext()!=null)
+//					this.setFieldChoose(headField.searchField(id));
+//			}
+//		}else {
+//			throw new FieldNotChoosen();
+//		}
+//	}
 	
 	public Character getCharacterChoose() {
 		return characterChoose;

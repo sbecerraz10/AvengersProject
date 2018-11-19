@@ -87,10 +87,13 @@ public class IndexController implements Initializable{
 	@FXML
 	public void play(ActionEvent event) {
 		try {
-//			Main.getIndexModel().chooseField(field1.getImage().impl_getUrl());
-//			System.out.println(field1.getImage().impl_getUrl());
-//			Main.getIndexModel().chooseCharacter(character1.getImage().impl_getUrl());
-//			System.out.println(character1.getImage().impl_getUrl());
+			if(field1.getOpacity() != 0.30) {
+				Main.getIndexModel().electedField(false);
+			}if(character1.getOpacity() != 0.30) {
+				Main.getIndexModel().electedCharacter(false);
+			}
+			Main.getIndexModel().electedCharacter(true);
+			Main.getIndexModel().electedField(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/application/FieldWindow.fxml"));
 			Parent root = loader.load();
@@ -102,16 +105,15 @@ public class IndexController implements Initializable{
 			Alert a = new Alert(AlertType.ERROR);
 			a.setContentText(e.getMessage());
 			a.show();
+		} catch (FieldNotChoosen e) {
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText(e.getMessage());
+			a.show();
+		} catch (CharacterNotChoosen e) {
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText(e.getMessage());
+			a.show();
 		}
-//		} catch (FieldNotChoosen e) {
-//			Alert a = new Alert(AlertType.ERROR);
-//			a.setContentText(e.getMessage());
-//			a.show();
-//		} catch (CharacterNotChoosen e) {
-//			Alert a = new Alert(AlertType.ERROR);
-//			a.setContentText(e.getMessage());
-//			a.show();
-//		}
 		
 	}
 
