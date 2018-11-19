@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -33,6 +34,12 @@ public class IndexController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println(Main.getIndexModel().getHeadCharacter().getNickname());
 		character1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
+		
+	}
+	
+	public void selectCharacter(ActionEvent event) {
+		Button button = (Button) event.getSource();
+		String id = button.getId();
 		
 	}
 
