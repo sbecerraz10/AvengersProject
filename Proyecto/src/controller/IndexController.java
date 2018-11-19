@@ -3,7 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import modelo.Character;
 import application.Main;
 import exception.CharacterNotChoosen;
 import exception.FieldNotChoosen;
@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import modelo.Field;
 
 public class IndexController implements Initializable{
 	
@@ -28,6 +29,10 @@ public class IndexController implements Initializable{
     private ImageView field1;
     @FXML
     private ImageView character1;
+    
+    private Character actualCharacter;
+    
+    private Field actualField;
 
     @FXML
     private ImageView leftArrowCharacter, rightArrowCharacter;
@@ -36,9 +41,17 @@ public class IndexController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		actualCharacter = Main.getIndexModel().getHeadCharacter();
 		System.out.println(Main.getIndexModel().getHeadCharacter().getNickname());
 		character1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
 		field1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
+	}
+	
+	@FXML
+	public void showNextCharacter(MouseEvent event) {
+		Field field = actualField;
+		//while()
+		//character1.setImage(new Image(Main.getIndexModel().showNextCharacter(Main.getIndexModel().getHeadCharacter()).getImage()));
 	}
 	
 	@FXML
@@ -59,10 +72,11 @@ public class IndexController implements Initializable{
 	@FXML
 	public void play(ActionEvent event) {
 		try {
+			
 			Main.getIndexModel().chooseField(field1.getImage().impl_getUrl());
-			System.out.println(Main.getIndexModel().getFieldChoose());
+			System.out.println(field1.getImage().impl_getUrl());
 			Main.getIndexModel().chooseCharacter(character1.getImage().impl_getUrl());
-			System.out.println(Main.getIndexModel().getCharacterChoose());
+			System.out.println(character1.getImage().impl_getUrl());
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/application/FieldWindow.fxml"));
 			Parent root = loader.load();

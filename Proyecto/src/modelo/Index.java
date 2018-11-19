@@ -22,6 +22,9 @@ public class Index {
 	public Index() {
 		users = new ArrayList<User>();	
 		loadCharacters();
+		loadFields();
+		circularListField();
+		circularListCharacter();
 	}
 	
 	
@@ -46,11 +49,6 @@ public class Index {
 	}
 	
 	
-	public void loadFields() {
-		
-	}
-	
-	
 	public void loadCharacters() {
 		Character thor = new Character(1000,100000,"thor","/images/thor.png");
 		Character spiderman = new Character(1000,10000,"spiderman","/images/thor.png");
@@ -58,6 +56,34 @@ public class Index {
 		saveCharacters(ironman,this.headCharacter,null);
 		saveCharacters(spiderman,this.headCharacter,null);
 		saveCharacters(thor,this.headCharacter,null);
+	}
+	
+	public void loadFields() {
+		Field chernovil = new Field("/images/chernobyl.png");
+		saveField(chernovil,this.headField,null);
+		//file:/C:/Users/KAMILO/git/AvengersProject/Proyecto/bin
+	}
+	
+	public void saveField(Field field, Field actual, Field previous) {
+		if(this.headField==null) {
+			this.headField = field;
+		}else {
+			if(this.headField.compareTo(field) <= 0) {
+				field.setNext(headField);
+				headField.setPrevious(field);
+				headField = field;
+			}
+			else if(actual.compareTo(field) <= 0) {
+				if(previous!=null)previous.setNext(field);
+				actual.setPrevious(field);
+				field.setNext(actual);
+				field.setPrevious(previous);
+			}else {
+				previous = actual;
+				actual = actual.getNext();
+				saveField(field,actual,previous);
+			}
+		}
 	}
 	
 	public void saveCharacters(Character character, Character actual, Character previous) {
@@ -82,12 +108,47 @@ public class Index {
 		}
 	}
 	
+	public void circularListCharacter() {
+		Character actual = headCharacter;
+		while(actual!= null) {
+			actual = actual.getNext();
+		}
+		actual.setNext(headCharacter);
+		headCharacter.setPrevious(actual);
+	}
+	
+	public void circularListField() {
+		Field actual = headField;
+		while(actual!= null) {
+			actual = actual.getNext();
+		}
+		actual.setNext(headField);
+		headField.setPrevious(actual);
+	}
+	
+	public Character showNextCharacter(Character actual) {
+		return actual.getNext();
+	}
+	
+	public Field showNextField(Field actual) {
+		return actual.getNext();
+	}
+	
+	public Character showPreviousCharacter(Character actual) {
+		return actual.getPrevious();
+	}
+	
+	public Field showPreviosField(Field actual) {
+		return actual.getPrevious();
+	}
+	
 	public void chooseCharacter(String id) throws CharacterNotChoosen {
 		if(headCharacter != null) {
 			if(headCharacter.getImage().equals(id)) {
 				this.setCharacterChoose(headCharacter);
 			}else {
-				this.setCharacterChoose(headCharacter.searchCharacter(id));
+				if(this.headCharacter.getNext()!=null)
+					this.setCharacterChoose(headCharacter.searchCharacter(id));
 			}
 		}else {
 			throw new CharacterNotChoosen();
@@ -95,11 +156,13 @@ public class Index {
 	}
 	
 	public void chooseField(String id) throws FieldNotChoosen {
+		//String idN = "file:/C:/Users/KAMILO/git/AvengersProject/Proyecto/bin" 
 		if(headField != null) {
 			if(headField.getImage().equals(id)) {
 				this.setFieldChoose(headField);
 			}else {
-				this.setFieldChoose(headField.searchField(id));
+				if(this.headField.getNext()!=null)
+					this.setFieldChoose(headField.searchField(id));
 			}
 		}else {
 			throw new FieldNotChoosen();

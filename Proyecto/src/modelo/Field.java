@@ -2,7 +2,9 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Field {
+public class Field implements Comparable<Field>{
+	
+	private String name;
 	
 	private Field next;
 	
@@ -16,11 +18,20 @@ public class Field {
 	
 	private ArrayList<Electricity> electricity;
 
-	public Field() {
+	public Field(String image) {
+		this.image = image;
 		bombs = new ArrayList<Bomb>();
 		electricity = new ArrayList<Electricity>();
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Field getNext() {
 		return next;
 	}
@@ -71,6 +82,17 @@ public class Field {
 	
 	public void generateTraps() {
 		
+	}
+	
+	@Override
+	public int compareTo(Field field) {
+		int toReturn = 0;
+		if(this.name.compareTo(field.getName())>0) {
+			toReturn = -1;
+		}else if(this.name.compareTo(field.getName())<0) {
+			toReturn = 1;
+		}
+		return toReturn;
 	}
 	
 	public Field searchField(String id) {
