@@ -18,7 +18,8 @@ public class Field implements Comparable<Field>{
 	
 	private ArrayList<Electricity> electricity;
 
-	public Field(String image) {
+	public Field(String name,String image) {
+		this.name = name;
 		this.image = image;
 		bombs = new ArrayList<Bomb>();
 		electricity = new ArrayList<Electricity>();
@@ -87,9 +88,9 @@ public class Field implements Comparable<Field>{
 	@Override
 	public int compareTo(Field field) {
 		int toReturn = 0;
-		if(this.name.compareTo(field.getName())>0) {
+		if(this.name.compareTo(field.getName())<0) {
 			toReturn = -1;
-		}else if(this.name.compareTo(field.getName())<0) {
+		}else if(this.name.compareTo(field.getName())>0) {
 			toReturn = 1;
 		}
 		return toReturn;

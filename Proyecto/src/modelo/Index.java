@@ -1,13 +1,14 @@
 package modelo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import exception.CharacterNotChoosen;
 import exception.FieldNotChoosen;
 import exception.NicknameNotValid;
-import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 
 public class Index {
 	
@@ -59,17 +60,49 @@ public class Index {
 	
 	
 	public void loadCharacters() {
-		Character thor = new Character(1000,100000,"thor","/images/thor.png");
-		Character spiderman = new Character(1000,10000,"spiderman","/images/spiderman1.png");
-		Character ironman = new Character(1000,1000,"iron man","/images/ironman.png");
-		saveCharacters(ironman,this.headCharacter,null);
-		saveCharacters(spiderman,this.headCharacter,null);
-		saveCharacters(thor,this.headCharacter,null);
+		try {
+			FileReader fr = new FileReader("files/Characters.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String cadena = "";
+			while((cadena= br.readLine())!= null) {
+				String[] character = cadena.split(";");
+				int healt = Integer.parseInt(character[0]);
+				int power = Integer.parseInt(character[1]);
+				String name = character[2];
+				String image = character[3];
+				Character ch = new Character(healt,power,name,image);
+				saveCharacters(ch,this.headCharacter,null);
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void loadFields() {
-		Field chernovil = new Field("/images/chernobyl.jpg");
-		saveField(chernovil,this.headField,null);
+		try {
+			FileReader fr = new FileReader("files/Fields.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String cadena="";
+			while((cadena=br.readLine())!=null) {
+				String[] field = cadena.split(";");
+				String nombre = field[0];
+				String image = field[1];
+				Field fd = new Field(nombre,image);
+				saveField(fd,this.headField,null);
+			}
+			br.close();
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void saveField(Field field, Field actual, Field previous) {

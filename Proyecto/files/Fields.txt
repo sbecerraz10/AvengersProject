@@ -1,0 +1,2 @@
+Chernobyl;/images/chernobyl.jpg
+Ciudad-en-llamas;/images/llamas.jpg

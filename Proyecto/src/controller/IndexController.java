@@ -44,7 +44,7 @@ public class IndexController implements Initializable{
 		actualCharacter = Main.getIndexModel().getHeadCharacter();
 		actualField = Main.getIndexModel().getHeadField();
 		character1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
-		field1.setImage(new Image(Main.getIndexModel().getHeadCharacter().getImage()));
+		field1.setImage(new Image(Main.getIndexModel().getHeadField().getImage()));
 	}
 	
 	@FXML
