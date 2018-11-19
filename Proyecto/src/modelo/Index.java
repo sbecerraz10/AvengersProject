@@ -289,6 +289,7 @@ public class Index {
 		this.headCharacter = headCharacter;
 	}
 	
+	
 
 }
 

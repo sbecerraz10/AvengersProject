@@ -105,5 +105,5 @@ public class Field implements Comparable<Field>{
 		}
 		return toReturn;
 	}
-
+ 
 }
