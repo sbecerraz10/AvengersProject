@@ -37,11 +37,17 @@ public class IndexController implements Initializable{
 		
 	}
 	
-	public void selectCharacter(ActionEvent event) {
-		Button button = (Button) event.getSource();
-		String id = button.getId();
-		
+	@FXML
+	public void selectCharacter(MouseEvent event) {
+		character1.setOpacity(0.30);
 	}
+	
+	@FXML
+	public void selectField(MouseEvent event) {
+		field1.setOpacity(0.30);
+	}
+	
+	@FXML
 
 	
 	public void backToMenu(MouseEvent event) {

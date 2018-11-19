@@ -31,6 +31,9 @@ public class FieldController implements Initializable{
 
     @FXML
     private ImageView gema6;
+    
+    @FXML
+    private ImageView character;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -40,7 +43,8 @@ public class FieldController implements Initializable{
 		gema3.setOpacity(0.30);
 		gema4.setOpacity(0.30);
 		gema5.setOpacity(0.30);
-		gema6.setOpacity(0.30);		
+		gema6.setOpacity(0.30);	
+		//character.setImage(new Image(Main.getIndexModel()));
 	}
 
 }
