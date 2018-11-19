@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import exception.CharacterNotChoosen;
 import exception.FieldNotChoosen;
 import exception.NicknameNotValid;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 
 public class Index {
 	
@@ -25,7 +28,13 @@ public class Index {
 		loadFields();
 		circularListField();
 		circularListCharacter();
+		characterChoose = headCharacter;
+		fieldChoose = headField;
 	}
+	
+	
+	
+	
 	
 	
 	public void registrerUser(String nickname) throws NicknameNotValid {
@@ -61,9 +70,6 @@ public class Index {
 	public void loadFields() {
 		Field chernovil = new Field("/images/chernobyl.jpg");
 		saveField(chernovil,this.headField,null);
-		
-		
-		//file:/C:/Users/KAMILO/git/AvengersProject/Proyecto/bin
 	}
 	
 	public void saveField(Field field, Field actual, Field previous) {
@@ -148,6 +154,22 @@ public class Index {
 		return actual.getPrevious();
 	}
 	
+	public void showNextCharacter() {
+		this.characterChoose = this.characterChoose.getNext();
+	}
+	
+	public void showPreviousCharacter() {
+		this.characterChoose = this.characterChoose.getPrevious();
+	}
+	
+	public void showNextField() {
+		this.fieldChoose = this.fieldChoose.getNext();
+	}
+	
+	public void showPreviousField() {
+		this.fieldChoose = this.fieldChoose.getPrevious();
+	}
+	
 	public void chooseCharacter(String id) throws CharacterNotChoosen {
 		if(headCharacter != null) {
 			if(headCharacter.getImage().equals(id)) {
@@ -162,7 +184,6 @@ public class Index {
 	}
 	
 	public void chooseField(String id) throws FieldNotChoosen {
-		//String idN = "file:/C:/Users/KAMILO/git/AvengersProject/Proyecto/bin" 
 		if(headField != null) {
 			if(headField.getImage().equals(id)) {
 				this.setFieldChoose(headField);

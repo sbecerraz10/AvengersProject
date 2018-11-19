@@ -11,7 +11,7 @@
       <AnchorPane layoutX="-1.0" prefHeight="130.0" prefWidth="505.0" style="-fx-background-color: #008fe5;" />
       <ImageView fitHeight="291.0" fitWidth="505.0" layoutX="-1.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/Marvel.jpg" />
+            <Image url="@../images/Marvel.jpg" />
          </image>
       </ImageView>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="195.0" mnemonicParsing="false" onAction="#resumeGame" prefHeight="26.0" prefWidth="122.0" style="-fx-background-radius: 90; -fx-background-color: #021e71;" text="Resume Game" textAlignment="CENTER" textFill="WHITE">
@@ -31,7 +31,7 @@
       </Button>
       <ImageView fitHeight="121.0" fitWidth="284.0" layoutX="111.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/avengers.png" />
+            <Image url="@../images/avengers.png" />
          </image>
       </ImageView>
       <Button layoutX="191.0" layoutY="306.0" mnemonicParsing="false" onAction="#searchCharacter" prefHeight="26.0" prefWidth="122.0" style="-fx-background-radius: 90; -fx-background-color: #021e71;" text="Search Character" textFill="WHITE">

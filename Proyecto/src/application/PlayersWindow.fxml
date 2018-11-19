@@ -6,17 +6,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayersController">
    <children>
       <ImageView fitHeight="329.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/Fondo2.jpg" />
+            <Image url="@../images/Fondo2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="98.0" fitWidth="293.0" layoutX="204.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/avengers.png" />
+            <Image url="@../images/avengers.png" />
          </image>
       </ImageView>
       <ListView layoutX="14.0" layoutY="45.0" prefHeight="210.0" prefWidth="184.0" />
@@ -26,7 +25,7 @@
       <Button layoutX="270.0" layoutY="208.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" style="-fx-background-radius: 90;" text="Criterio4" />
       <ImageView fitHeight="38.0" fitWidth="39.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/home.png" />
+            <Image url="@../images/home.png" />
          </image>
       </ImageView>
    </children>
