@@ -1,9 +1,7 @@
 package modelo;
 
-public class Gemma {
+public class Gemma implements InterfaceMovement{
 
-	public static int LIMITY = 243;
-	
 	private Gemma left;
 	
 	private Gemma rigth;
@@ -14,14 +12,16 @@ public class Gemma {
 	
 	private int posx;
 	
-	int dy = 3;
 	
-	public void moveGemma() {
-		if(this.posy >243) {
+	@Override
+	public void move() {
+		if(this.posy > LIMITY) {
 			this.posy = 0;
+			int random = (int) (Math.random()*LIMITX)+5;
+			this.posx = random;
 		}
 		
-		this.posy += dy;
+		this.posy += MOVEMENT_RATING;
 	}
 	
 	public int getPosy() {
@@ -30,6 +30,10 @@ public class Gemma {
 
 	public void setPosy(int posy) {
 		this.posy = posy;
+	}
+	
+	public int getPosx() {
+		return posx;
 	}
 
 	public Gemma(int power) {
@@ -71,5 +75,7 @@ public class Gemma {
 	public void setPower(int power) {
 		this.power = power;
 	}
+
+
 
 }

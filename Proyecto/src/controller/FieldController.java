@@ -59,11 +59,12 @@ public class FieldController implements Initializable{
 		gema5.setOpacity(0.30);
 		gema6.setOpacity(0.30);	
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
-			
+
 			thread = new Timeline(new KeyFrame(Duration.ZERO, e-> {
 				gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
-				gemma.moveGemma();
+				gemma.move();
 				g.setLayoutY(gemma.getPosy());
+				g.setLayoutX(gemma.getPosx());
 				
 				
 			}),new KeyFrame(Duration.millis(30)));
@@ -111,7 +112,7 @@ public class FieldController implements Initializable{
 	
 	private void moveDown() {
 		Main.getIndexModel().getCharacterChoose().setDown(true);
-		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		Main.getIndexModel().getCharacterChoose().move();
 		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
 		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
 		
@@ -119,7 +120,7 @@ public class FieldController implements Initializable{
 
 	private void moveUp() {
 		Main.getIndexModel().getCharacterChoose().setUp(true);
-		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		Main.getIndexModel().getCharacterChoose().move();
 		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
 		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
 		
@@ -127,14 +128,14 @@ public class FieldController implements Initializable{
 
 	public void moveRight() {
 		Main.getIndexModel().getCharacterChoose().setRight(true);
-		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		Main.getIndexModel().getCharacterChoose().move();
 		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
 		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
 	}
 	
 	public void moveLeft() {
 		Main.getIndexModel().getCharacterChoose().setLeft(true);
-		Main.getIndexModel().getCharacterChoose().moveCharacter();
+		Main.getIndexModel().getCharacterChoose().move();
 		character.setLayoutX(Main.getIndexModel().getCharacterChoose().getPosx());
 		character.setLayoutY(Main.getIndexModel().getCharacterChoose().getPosy());
 	}

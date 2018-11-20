@@ -1,13 +1,6 @@
 package modelo;
 
-public class Character implements Comparable<Character> {
-
-	
-	public static final int LIMITX = 693;
-
-	public static final int LIMITY = 243;
-	
-	public static final int MOVEMENT_RATING = 10;
+public class Character implements Comparable<Character>, InterfaceMovement {
 	
 	private int life;
 	
@@ -65,8 +58,8 @@ public class Character implements Comparable<Character> {
 		this.posx = 346;
 	}
 
-	
-	public void moveCharacter() {
+	@Override
+	public void move() {
 		if(this.left) {
 			if(posx>0) {
 				this.posx -= MOVEMENT_RATING;				
@@ -88,7 +81,9 @@ public class Character implements Comparable<Character> {
 				this.posy += MOVEMENT_RATING;
 			}
 		}
+		
 	}
+
 	
 	public boolean isLeft() {
 		return left;
@@ -210,7 +205,6 @@ public class Character implements Comparable<Character> {
 		}
 		return toReturn;
 	}
-	
 	
 
 }
