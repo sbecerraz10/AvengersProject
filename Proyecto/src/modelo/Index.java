@@ -114,7 +114,7 @@ public class Index {
 				headField.setPrevious(field);
 				headField = field;
 			}
-			else if(actual.compareTo(field) <= 0) {
+			else if(actual.compareTo(field) > 0) {
 				if(previous!=null)previous.setNext(field);
 				actual.setPrevious(field);
 				field.setNext(actual);

@@ -96,15 +96,13 @@ public class Field implements Comparable<Field>{
 		}
 		return toReturn;
 	}
-	
-	public Field searchField(String id) {
-		Field toReturn = null;
-		if(this.image.equals(id)) {
-			toReturn =  this;
-		}else {
-			toReturn = this.next.searchField(id);
-		}
-		return toReturn;
-	}
- 
+//	public Field searchField(String id) {
+//		Field toReturn = null;
+//		if(this.image.equals(id)) {
+//			toReturn =  this;
+//		}else {
+//			toReturn = this.next.searchField(id);
+//		}
+//		return toReturn;
+//	}
 }
