@@ -13,9 +13,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import exception.CharacterDoesNotExist;
 import exception.CharacterNotChoosen;
 import exception.FieldNotChoosen;
 import exception.NicknameNotValid;
+import exception.PlayerDoesNotExist;
 
 public class Index {
 	
@@ -45,18 +47,13 @@ public class Index {
 		fieldChoose = headField;
 	}
 	
-	
-	
-	
-	
-	
 	public void registrerUser(String nickname) throws NicknameNotValid {
 		if(nickname.length()<4) {
 			throw new NicknameNotValid();
 		}users.add(new User(nickname));		
 	}
 	
-	public ArrayList<User> ordenarUserName() {	
+	public void ordenarUserName() {	
 		int in;
 		for (int i = 1 ; i < users.size(); i++) {
 			User aux = users.get(i);
@@ -67,7 +64,44 @@ public class Index {
 			} 
 			users.set(in, aux);
 		}
-		return users;
+	}
+	
+	public Character searchCharacter(String nombre) throws CharacterDoesNotExist {
+		Character ch = null;
+		if(headCharacter != null) {
+			ch = headCharacter.searchCharacter(nombre);
+		}else{
+			ch = null;
+		}
+		if(ch == null) {
+			throw new CharacterDoesNotExist();
+		}
+		return ch;
+	}
+	
+	public User searchUser(String nombre) throws PlayerDoesNotExist {
+		ordenarUserName();
+		User user = null;
+		boolean encontro = false;
+		int inicio = 0;
+		int ultimo = users.size()-1;
+		int centro;
+		while(inicio<=ultimo && !encontro) {
+			centro = (inicio+ultimo)/2;
+			if(users.get(centro).getName().compareToIgnoreCase(nombre)==0) {
+				user = users.get(centro);
+				encontro = true;
+			}else if(users.get(centro).getName().compareToIgnoreCase(nombre)<0) {
+				inicio = centro+1;
+			}else {
+				ultimo = centro-1;
+			}
+		}
+		if(user == null) {
+			throw new PlayerDoesNotExist();
+		}
+		
+		return user;
 	}
 	
 	

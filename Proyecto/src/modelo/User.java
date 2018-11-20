@@ -42,4 +42,11 @@ public class User implements Comparable<User>, Serializable{
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", score=" + score + "]";
+	}
+	
+	
+
 }
