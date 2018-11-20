@@ -21,7 +21,7 @@ public class Gemma implements InterfaceMovement{
 			this.posx = random;
 		}
 		
-		this.posy += MOVEMENT_RATING;
+		this.posy += MOVEMENT_RATING_GEMMA;
 	}
 	
 	public int getPosy() {
