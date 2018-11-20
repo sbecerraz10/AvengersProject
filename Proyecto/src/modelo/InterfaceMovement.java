@@ -8,6 +8,10 @@ public interface InterfaceMovement {
 	
 	public static final int MOVEMENT_RATING = 10;
 	
+	public static final int MOVEMENT_RATING_GEMMA = 3;
+	
+	
+	
 	public void move();
 	
 }

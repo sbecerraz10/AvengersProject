@@ -84,25 +84,29 @@ public class FieldController implements Initializable{
 	public void onKeyPressed(Scene scene) {
 		scene.setOnKeyPressed(e->{
 			switch(e.getCode()) {
-				case LEFT: moveLeft();
+			case LEFT: 
 				disableRight();
 				disableUp();
 				disableDown();
+				moveLeft();
 					break;
-				case RIGHT: moveRight();
+				case RIGHT: 
 				disableLeft();
 				disableUp();
 				disableDown();
+				moveRight();
 					break;	
-				case UP: moveUp();
+				case UP: 
 				disableDown();
 				disableRight();
 				disableLeft();
+				moveUp();
 					break;
-				case DOWN: moveDown();
+				case DOWN: 
 				disableUp();
 				disableRight();
 				disableLeft();
+				moveDown();
 					break;
 				default:
 					break;
