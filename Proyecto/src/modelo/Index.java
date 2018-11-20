@@ -70,15 +70,6 @@ public class Index {
 		return users;
 	}
 	
-//	public String writeUsers(String criterio) {
-//		ArrayList<User> clon = null;
-//		if(criterio.equals("Nombre")) {
-//			clon = ordenarUserName();
-//		}
-//		String cadena = "";
-//		
-//	}
-	
 	
 	public void loadCharacters() {
 		try {
@@ -130,21 +121,26 @@ public class Index {
 		if(this.headField==null) {
 			this.headField = field;
 		}else {
-			if(this.headField.compareTo(field) <= 0) {
-				field.setNext(headField);
-				headField.setPrevious(field);
-				headField = field;
-			}
-			else if(actual.compareTo(field) > 0) {
-				if(previous!=null)previous.setNext(field);
-				actual.setPrevious(field);
-				field.setNext(actual);
-				field.setPrevious(previous);
+			if(actual==null) {
+				previous.setNext(field);
 			}else {
-				previous = actual;
-				actual = actual.getNext();
-				saveField(field,actual,previous);
-			}
+				if(this.headField.compareTo(field) <= 0) {
+					field.setNext(headField);
+					headField.setPrevious(field);
+					headField = field;
+				}
+				else if(actual.compareTo(field) <= 0) {
+					if(previous!=null)previous.setNext(field);
+					actual.setPrevious(field);
+					field.setNext(actual);
+					field.setPrevious(previous);
+				}else {
+					previous = actual;
+					actual = actual.getNext();
+					saveField(field,actual,previous);
+				}
+			}		
+					
 		}
 	}
 	

@@ -89,9 +89,9 @@ public class Field implements Comparable<Field>{
 	@Override
 	public int compareTo(Field field) {
 		int toReturn = 0;
-		if(this.name.compareTo(field.getName())<0) {
+		if(this.name.compareToIgnoreCase(field.getName())<0) {
 			toReturn = -1;
-		}else if(this.name.compareTo(field.getName())>0) {
+		}else if(this.name.compareToIgnoreCase(field.getName())>0) {
 			toReturn = 1;
 		}
 		return toReturn;
