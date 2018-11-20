@@ -1,2 +1,4 @@
 Chernobyl;/images/chernobyl.jpg
 Ciudad-en-llamas;/images/llamas.jpg
+Ciudad-en-ruinas;/images/ruinas.jpg
+Aeropuerto;/images/aeropuerto.jpg
