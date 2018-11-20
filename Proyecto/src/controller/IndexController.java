@@ -72,14 +72,14 @@ public class IndexController implements Initializable{
 	
 	@FXML
 	public void selectCharacter(MouseEvent event) {
-		character1.setOpacity(0.30);
+		character1.setOpacity(0.65);
 		leftArrowCharacter.setVisible(false);
 		rightArrowCharacter.setVisible(false);		
 	}
 	
 	@FXML
 	public void selectField(MouseEvent event) {
-		field1.setOpacity(0.30);
+		field1.setOpacity(0.65);
 		leftArrowField.setVisible(false);
 		rightArrowField.setVisible(false);
 	}
@@ -87,9 +87,9 @@ public class IndexController implements Initializable{
 	@FXML
 	public void play(ActionEvent event) {
 		try {
-			if(field1.getOpacity() != 0.30) {
+			if(field1.getOpacity() != 0.65) {
 				Main.getIndexModel().electedField(false);
-			}if(character1.getOpacity() != 0.30) {
+			}if(character1.getOpacity() != 0.65) {
 				Main.getIndexModel().electedCharacter(false);
 			}
 			Main.getIndexModel().electedCharacter(true);
