@@ -1,9 +1,16 @@
 package modelo;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import exception.CharacterNotChoosen;
@@ -24,7 +31,12 @@ public class Index {
 	
 	
 	public Index() {
-		users = new ArrayList<User>();	
+		File file = new File("data/Coachs.txt");
+		if(file.exists() == false) {
+			users = new ArrayList<User>();
+		}else {
+			users = recuperarUsers();
+		}	
 		loadCharacters();
 		loadFields();
 		circularListField();
@@ -213,6 +225,42 @@ public class Index {
 		if(elected == false) {
 			throw new FieldNotChoosen();
 		}
+	}
+	
+	public void serializarUsers()  {
+		try {
+			File file = new File("files/Users.txt");
+			if(file.exists()== false) {
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+				oos.writeObject(users);
+				oos.close();	
+			}else {
+				FileWriter fl = new FileWriter(file);
+				BufferedWriter bf = new BufferedWriter(fl);
+				bf.write("");
+				bf.close();
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+				oos.writeObject(users);
+				oos.close();	
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<User> recuperarUsers() {
+		ArrayList<User> clon = null;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/Coachs.txt"));
+			clon = (ArrayList<User>) ois.readObject();
+			ois.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return clon;
 	}
 	
 //	public void chooseCharacter(String id) throws CharacterNotChoosen {
