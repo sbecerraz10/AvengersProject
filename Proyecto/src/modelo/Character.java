@@ -61,7 +61,8 @@ public class Character implements Comparable<Character> {
 		this.image = image;
 		this.next = null;
 		this.previous = null;
-//		this.posy = 500;
+		this.posy = 243;
+		this.posx = 346;
 	}
 
 	

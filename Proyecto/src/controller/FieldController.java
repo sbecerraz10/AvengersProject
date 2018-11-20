@@ -52,7 +52,6 @@ public class FieldController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		field.setImage(new Image(Main.getIndexModel().getFieldChoose().getImage()));
-		gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
 		gema1.setOpacity(0.30);
 		gema2.setOpacity(0.30);
 		gema3.setOpacity(0.30);
@@ -62,6 +61,7 @@ public class FieldController implements Initializable{
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
 			
 			thread = new Timeline(new KeyFrame(Duration.ZERO, e-> {
+				gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
 				gemma.moveGemma();
 				g.setLayoutY(gemma.getPosy());
 				

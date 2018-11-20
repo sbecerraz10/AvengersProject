@@ -23,6 +23,7 @@ public class Field implements Comparable<Field>{
 		this.image = image;
 		bombs = new ArrayList<Bomb>();
 		electricity = new ArrayList<Electricity>();
+		rootGemma = new Gemma(0); 
 	}
 	
 	public String getName() {
