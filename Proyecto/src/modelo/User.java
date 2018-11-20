@@ -1,6 +1,8 @@
 package modelo;
 
-public class User implements Comparable<User> {
+import java.io.Serializable;
+
+public class User implements Comparable<User>, Serializable{
 	
 	private String name;
 	private int score;
