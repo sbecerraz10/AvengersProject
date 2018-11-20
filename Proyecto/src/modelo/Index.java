@@ -70,6 +70,15 @@ public class Index {
 		return users;
 	}
 	
+//	public String writeUsers(String criterio) {
+//		ArrayList<User> clon = null;
+//		if(criterio.equals("Nombre")) {
+//			clon = ordenarUserName();
+//		}
+//		String cadena = "";
+//		
+//	}
+	
 	
 	public void loadCharacters() {
 		try {
