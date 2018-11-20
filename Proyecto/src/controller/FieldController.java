@@ -61,6 +61,7 @@ public class FieldController implements Initializable{
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
 
 			thread = new Timeline(new KeyFrame(Duration.ZERO, e-> {
+				g.setImage(new Image("/images/Gema_Alma.png"));
 				gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
 				gemma.move();
 				g.setLayoutY(gemma.getPosy());
