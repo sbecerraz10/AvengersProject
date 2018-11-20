@@ -7,7 +7,6 @@ import application.Main;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -61,19 +60,16 @@ public class FieldController implements Initializable{
 		character.setImage(new Image(Main.getIndexModel().getCharacterChoose().getImage()));
 
 			thread = new Timeline(new KeyFrame(Duration.ZERO, e-> {
-				g.setImage(new Image("/images/Gema_Alma.png"));
+				g.setImage(new Image("/images/Gema_Alma.png",50,50,false,true));
 				gemma = Main.getIndexModel().getFieldChoose().getRootGemma();
 				gemma.move();
 				g.setLayoutY(gemma.getPosy());
 				g.setLayoutX(gemma.getPosx());
 				
-				
 			}),new KeyFrame(Duration.millis(30)));
 			
 			thread.setCycleCount(Animation.INDEFINITE);
-			thread.play();
-			
-		
+			thread.play();		
 	}
 	
 	public void receiveScene(Scene scene) {
