@@ -11,7 +11,7 @@ public class User implements Serializable{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name, int score) {
 		this.name = name;
 	}
 
@@ -23,9 +23,9 @@ public class User implements Serializable{
 		this.score = score;
 	}
 
-	public User(String name) {
+	public User(String name,int score) {
 		this.name = name;
-		score = 0;
+		this.score = score;
 	}
 
 	public int compareName(User user) {
@@ -56,7 +56,7 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", score=" + score + "]";
+		return "User [name=" + name + "- score=" + score + "]";
 	}
 	
 	

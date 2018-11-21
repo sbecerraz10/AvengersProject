@@ -216,7 +216,9 @@ public class Character implements  InterfaceMovement {
 
 	public Character searchCharacter(String nombre) {
 		Character toReturn = null;
-		if(this.nickname.equalsIgnoreCase(nombre)) {
+		if(this.next == null) {
+			toReturn = null;
+		}else if(this.nickname.equalsIgnoreCase(nombre)) {
 			toReturn =  this;
 		}else {
 			toReturn = this.next.searchCharacter(nombre);

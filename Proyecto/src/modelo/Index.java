@@ -31,6 +31,8 @@ public class Index {
 	
 	private Field fieldChoose;
 	
+	private User userChoose;
+	
 	
 	public Index() {
 		File file = new File("data/Coachs.txt");
@@ -45,12 +47,20 @@ public class Index {
 		circularListCharacter();
 		characterChoose = headCharacter;
 		fieldChoose = headField;
+//		writeCharacter();
 	}
 	
 	public void registrerUser(String nickname) throws NicknameNotValid {
 		if(nickname.length()<4) {
 			throw new NicknameNotValid();
-		}users.add(new User(nickname));		
+		}users.add(new User(nickname,0));		
+	}
+	
+	public void choosenUser(String data) {
+		String[] info = data.split("\t");
+		String name = info[0];
+		int score = Integer.parseInt(info[1]);
+		userChoose = new User(name,score);
 	}
 	
 	public void ordenarUserName() {	
@@ -66,13 +76,45 @@ public class Index {
 		}
 	}
 	
+//	public void ordenarCharacterPower() {
+//		noCircular();
+//		Character aux = headCharacter;
+//		while(aux != null) {
+//			if(aux.comparePower(aux.getNext())<=0) {
+//				aux.setNext(aux.getNext().getNext());
+//				aux.getNext().setNext(aux);
+//				headCharacter = aux.getNext();
+//			}
+//			aux = aux.getNext();
+//		}
+//	}
+	
+	public String writeUsers() {
+		String cadena = "";
+		for(int i = 0;i<users.size();i++) {
+			cadena += users.get(i).getName()+"\t"+users.get(i).getScore()+",";
+		}
+		return cadena;
+    }
+	
+	public void noCircular(){
+		headCharacter.getPrevious().setNext(null);
+		headCharacter.setPrevious(null);
+	}
+	
+//	public void ordenarCharacterLife(){
+//		
+//	}
+	
 	public Character searchCharacter(String nombre) throws CharacterDoesNotExist {
+		noCircular();
 		Character ch = null;
 		if(headCharacter != null) {
 			ch = headCharacter.searchCharacter(nombre);
 		}else{
 			ch = null;
 		}
+		circularListCharacter();
 		if(ch == null) {
 			throw new CharacterDoesNotExist();
 		}
@@ -180,20 +222,23 @@ public class Index {
 		if(this.headCharacter==null) {
 			this.headCharacter = character;
 		}else {
-			if(this.headCharacter.compareName(character) <= 0) {
+			if(actual==null) {
+				previous.setNext(character);
+			}else {
+				if(this.headCharacter.compareName(character) <= 0) {
 				character.setNext(headCharacter);
 				headCharacter.setPrevious(character);
 				headCharacter = character;
-			}
-			else if(actual.compareName(character) <= 0) {
+				}else if(actual.compareName(character) <= 0) {
 				if(previous!=null)previous.setNext(character);
 				actual.setPrevious(character);
 				character.setNext(actual);
 				character.setPrevious(previous);
-			}else {
+				}else {
 				previous = actual;
 				actual = actual.getNext();
 				saveCharacters(character,actual,previous);
+				}
 			}
 		}
 	}

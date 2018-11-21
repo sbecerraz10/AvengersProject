@@ -121,7 +121,6 @@ public class IndexController implements Initializable{
 		
 	}
 	
-	
 	public void backToMenu(MouseEvent event) {
 		try {
 		FXMLLoader loader = new FXMLLoader();

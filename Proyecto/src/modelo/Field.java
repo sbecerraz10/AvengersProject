@@ -17,6 +17,8 @@ public class Field implements Comparable<Field>{
 	private ArrayList<Bomb> bombs;
 	
 	private ArrayList<Electricity> electricity;
+	
+	private Cronometro cronometro;
 
 	public Field(String name,String image) {
 		this.name = name;
@@ -82,6 +84,14 @@ public class Field implements Comparable<Field>{
 		this.image = image;
 	}
 	
+	public Cronometro getCronometro() {
+		return cronometro;
+	}
+
+	public void setCronometro(Cronometro cronometro) {
+		this.cronometro = cronometro;
+	}
+
 	public void generateTraps() {
 		
 	}
