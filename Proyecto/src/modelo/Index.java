@@ -58,7 +58,7 @@ public class Index {
 		for (int i = 1 ; i < users.size(); i++) {
 			User aux = users.get(i);
 			in = i;             
-			while (in > 0 && users.get(in - 1).compareTo(aux)>0) {
+			while (in > 0 && users.get(in - 1).compareName(aux)>0) {
 				users.set(in, users.get(in-1));
 				--in;
 			} 
@@ -180,12 +180,12 @@ public class Index {
 		if(this.headCharacter==null) {
 			this.headCharacter = character;
 		}else {
-			if(this.headCharacter.compareTo(character) <= 0) {
+			if(this.headCharacter.compareName(character) <= 0) {
 				character.setNext(headCharacter);
 				headCharacter.setPrevious(character);
 				headCharacter = character;
 			}
-			else if(actual.compareTo(character) <= 0) {
+			else if(actual.compareName(character) <= 0) {
 				if(previous!=null)previous.setNext(character);
 				actual.setPrevious(character);
 				character.setNext(actual);
@@ -300,32 +300,6 @@ public class Index {
 		return clon;
 	}
 	
-//	public void chooseCharacter(String id) throws CharacterNotChoosen {
-//		if(headCharacter != null) {
-//			if(headCharacter.getImage().equals(id)) {
-//				this.setCharacterChoose(headCharacter);
-//			}else {
-//				if(this.headCharacter.getNext()!=null)
-//					this.setCharacterChoose(headCharacter.searchCharacter(id));
-//			}
-//		}else {
-//			throw new CharacterNotChoosen();
-//		}
-//	}
-//	
-//	public void chooseField(String id) throws FieldNotChoosen {
-//		if(headField != null) {
-//			if(headField.getImage().equals(id)) {
-//				this.setFieldChoose(headField);
-//			}else {
-//				if(this.headField.getNext()!=null)
-//					this.setFieldChoose(headField.searchField(id));
-//			}
-//		}else {
-//			throw new FieldNotChoosen();
-//		}
-//	}
-	
 	public Character getCharacterChoose() {
 		return characterChoose;
 	}
@@ -354,28 +328,19 @@ public class Index {
 		this.users = users;
 	}
 
-
 	public Field getHeadField() {
 		return headField;
 	}
-
 
 	public void setHeadField(Field headField) {
 		this.headField = headField;
 	}
 
-
 	public Character getHeadCharacter() {
 		return headCharacter;
 	}
-
-
+	
 	public void setHeadCharacter(Character headCharacter) {
 		this.headCharacter = headCharacter;
 	}
-	
-	
-
 }
-
-

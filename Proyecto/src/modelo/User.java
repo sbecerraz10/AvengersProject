@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-public class User implements Comparable<User>, Serializable{
+public class User implements Serializable{
 	
 	private String name;
 	private int score;
@@ -28,8 +28,7 @@ public class User implements Comparable<User>, Serializable{
 		score = 0;
 	}
 
-	@Override
-	public int compareTo(User user) {
+	public int compareName(User user) {
 		int result = 0;
 		if(this.name.compareToIgnoreCase(user.getName())==0) {
 			result = 0;
@@ -40,6 +39,19 @@ public class User implements Comparable<User>, Serializable{
 		}
 		
 		return result;
+	}
+	
+	public int compareScore(User user) {
+		int result = 0;
+		if(this.score == user.getScore()) {
+			result = 0;
+		}else if(this.score < user.getScore()){
+			result = -1;
+		}else if(this.score > user.getScore()) {
+			result = 1;
+		}
+		
+		return result;		
 	}
 
 	@Override

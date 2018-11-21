@@ -1,6 +1,6 @@
 package modelo;
 
-public class Character implements Comparable<Character>, InterfaceMovement {
+public class Character implements  InterfaceMovement {
 	
 	private int life;
 	
@@ -176,26 +176,44 @@ public class Character implements Comparable<Character>, InterfaceMovement {
 	public void setPower(int power) {
 		this.power = power;
 	}
-
-	@Override
-	public int compareTo(Character character2) {
+	
+	public int compareName(Character character) {
 		int toReturn = 0;
-		
-		if(this.power < character2.getPower() ) {
+		if(this.nickname.compareToIgnoreCase(character.getNickname())==0) {
+			toReturn = 0;
+		}else if(this.nickname.compareToIgnoreCase(character.getNickname())<0) {
 			toReturn = -1;
-		}else if(this.power > character2.getPower()) {
+		}else if(this.nickname.compareToIgnoreCase(character.getNickname())>0) {
 			toReturn = 1;
 		}
-		
 		return toReturn;
-	
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
+	public int comparePower(Character character) {
+		int toReturn = 0;
+		if(this.power == character.getPower()) {
+			toReturn = 0;
+		} else if(this.power < character.getPower() ) {
+			toReturn = -1;
+		}else if(this.power > character.getPower()) {
+			toReturn = 1;
+		}
+		return toReturn;
+	}
+	
+	public int compareLife(Character character) {
+		int toReturn = 0;
+		if(this.power == character.getPower()) {
+			toReturn = 0;
+		}else if(this.life < character.getLife() ) {
+			toReturn = -1;
+		}else if(this.life > character.getLife()) {
+			toReturn = 1;
+		}
+		return toReturn;
+	}
+	
+
 	public Character searchCharacter(String nombre) {
 		Character toReturn = null;
 		if(this.nickname.equalsIgnoreCase(nombre)) {
