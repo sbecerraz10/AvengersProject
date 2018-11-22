@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FieldController">
    <children>
-      <ImageView fx:id="field" fitHeight="490.0" fitWidth="821.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="field" fitHeight="401.0" fitWidth="713.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/chernobyl.jpg" />
          </image>
