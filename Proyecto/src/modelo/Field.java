@@ -26,6 +26,7 @@ public class Field implements Comparable<Field>{
 		bombs = new ArrayList<Bomb>();
 		electricity = new ArrayList<Electricity>();
 		rootGemma = new Gemma(0); 
+		cronometro = new Cronometro();
 	}
 	
 	public String getName() {

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -51,14 +52,12 @@ public class FieldController implements Initializable{
     private ImageView g;
     
     @FXML
-    private Label cronometro;
+    private TextField cronometro;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		ThreadCronometro crono = new ThreadCronometro(Main.getIndexModel().getFieldChoose());
-//		crono.start();
-//		cronometro.setText(""+Main.getIndexModel().getFieldChoose().getCronometro().calcularSegundos());
-		
+		ThreadCronometro crono = new ThreadCronometro(Main.getIndexModel().getFieldChoose(),cronometro);
+		crono.start();
 		field.setImage(new Image(Main.getIndexModel().getFieldChoose().getImage()));
 		gema1.setOpacity(0.50);
 		gema2.setOpacity(0.50);

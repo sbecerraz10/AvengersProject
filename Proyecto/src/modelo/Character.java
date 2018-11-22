@@ -83,13 +83,10 @@ public class Character implements  InterfaceMovement {
 		}
 		
 	}
-
-	
 	public boolean isLeft() {
 		return left;
 	}
-
-
+	
 	public void setLeft(boolean left) {
 		this.left = left;
 	}
