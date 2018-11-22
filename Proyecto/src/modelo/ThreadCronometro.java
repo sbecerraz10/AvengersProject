@@ -15,9 +15,9 @@ public class ThreadCronometro extends Thread{
 	@Override
 	public void run() {
 		while (true) {		
-			field.getCronometro().iniciar();
-			System.out.println(field.getCronometro().darTiempo());
-			String time = field.getCronometro().darTiempo();
+			field.getCronometro().initiate();
+			System.out.println(field.getCronometro().getTime());
+			String time = field.getCronometro().getTime();
 			textField.setText(time);
 			try {
 				Thread.sleep(1000);
